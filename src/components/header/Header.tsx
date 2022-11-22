@@ -60,7 +60,7 @@ const Header = ({ authProvider }: any) => {
               {isAuthenticated && (
                 <NavItem>
                   <RouterNavLink
-                    to="/external-api"
+                    to="/list"
                     className={({ isActive }) =>
                       isActive ? "router-link-exact-active" : "nav-link"
                     }

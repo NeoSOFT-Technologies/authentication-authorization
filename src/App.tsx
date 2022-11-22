@@ -10,6 +10,9 @@ import Header from "./components/header/Header";
 import { Container } from "reactstrap";
 import initFontAwesome from "./utils/init-font-awesome";
 import Footer from "./components/footer/Footer";
+import Create from "./pages/mock-data/Create";
+import Update from "./pages/mock-data/Update";
+import List from "./pages/mock-data/List";
 initFontAwesome();
 
 function App({ authProvider }: any) {
@@ -24,6 +27,9 @@ function App({ authProvider }: any) {
             <Route path={"/landing"} element={<LandingPage />} />
             <Route path={"/callback"} element={<CallbackPage />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/list" element={<List />} />
+            <Route path="/create" element={<Create />} />
+            <Route path="/update" element={<Update />} />
             {/* redirect if not match any path */}
             <Route path="*" element={<Navigate to="/login" />} />
           </Routes>

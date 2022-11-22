@@ -36,6 +36,8 @@
     "axios-mock-adapter": "^1.20.0",
     "bootstrap": "^4.3.1",
     "compass-mixins": "^0.12.11",
+    "gridjs": "^5.1.0",
+    "gridjs-react": "^5.1.0",
     "i18next": "^21.8.0",
     "oidc-client": "^1.11.5",
     "oidc-client-ts": "^2.0.4",
