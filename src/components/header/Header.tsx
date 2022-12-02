@@ -69,6 +69,30 @@ const Header = ({ authProvider }: any) => {
                   </RouterNavLink>
                 </NavItem>
               )}
+              {isAuthenticated && (
+                <NavItem>
+                  <RouterNavLink
+                    to="/category"
+                    className={({ isActive }) =>
+                      isActive ? "router-link-exact-active" : "nav-link"
+                    }
+                  >
+                    Category
+                  </RouterNavLink>
+                </NavItem>
+              )}
+              {isAuthenticated && (
+                <NavItem>
+                  <RouterNavLink
+                    to="/landing"
+                    className={({ isActive }) =>
+                      isActive ? "router-link-exact-active" : "nav-link"
+                    }
+                  >
+                    Event
+                  </RouterNavLink>
+                </NavItem>
+              )}
             </Nav>
             <Nav className="d-none d-md-block" navbar>
               {!isAuthenticated && (

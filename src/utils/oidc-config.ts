@@ -13,11 +13,13 @@ interface IDENTITY_PROVIDERS {
   KeyCloak?: PROVIDERS;
   Auth0?: PROVIDERS;
   Okta?: PROVIDERS;
+  Azure?: PROVIDERS;
 }
 
 const KEYCLOAK_IDENTITY_CONFIG = {
   authority: "http://localhost:8080/realms/Neosoft",
-  client_id: "react-app",
+  client_id: "React-Application",
+  client_secret: "wBJ2qPw8WhWK7NqD1iyM9K7NGirDOL47",
   redirect_uri: "http://localhost:3000/callback",
   scope: "openid profile email",
 };
@@ -36,6 +38,14 @@ const OKTA_IDENTITY_CONFIG = {
   scope: "openid profile email",
 };
 
+const AZURE_ACTIVE_DIRECTORY_CONFIG = {
+  authority:
+    "https://login.microsoftonline.com/1e3bab2c-ff49-4d6c-827a-5017e6fd859c",
+  client_id: "93220d6d-a71a-4e6f-9919-49ab354c35a0",
+  redirect_uri: "http://localhost:3000/callback",
+  scope: "openid profile email",
+};
+
 export const AuthProviders: IDENTITY_PROVIDERS = {
   KeyCloak: {
     config: KEYCLOAK_IDENTITY_CONFIG,
@@ -48,5 +58,9 @@ export const AuthProviders: IDENTITY_PROVIDERS = {
   Okta: {
     config: OKTA_IDENTITY_CONFIG,
     name: "Okta",
+  },
+  Azure: {
+    config: AZURE_ACTIVE_DIRECTORY_CONFIG,
+    name: "Azure",
   },
 };
