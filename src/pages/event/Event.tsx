@@ -2,19 +2,19 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { access, AuthGuard } from "../../components/auth-guard/AuthGuard";
 
-export default function Category() {
+export default function Event() {
   return (
     <div className="col-lg-12 grid-margin stretch-card">
       <Card>
         <Card.Header>
-          <h1 className="card-title">Category</h1>
+          <h1 className="card-title">Event</h1>
         </Card.Header>
         <Card.Body>
           <div className="mt-2">
             <button
               className={`${
                 AuthGuard({
-                  resource: access.resources.Category,
+                  resource: access.resources.Event,
                   scope: access.scopes.View,
                 })
                   ? "btn btn-sm btn-success "
@@ -26,7 +26,7 @@ export default function Category() {
             <button
               className={`${
                 AuthGuard({
-                  resource: access.resources.Category,
+                  resource: access.resources.Event,
                   scope: access.scopes.Create,
                 })
                   ? "btn btn-sm btn-success "
@@ -38,7 +38,7 @@ export default function Category() {
             <button
               className={`${
                 AuthGuard({
-                  resource: access.resources.Category,
+                  resource: access.resources.Event,
                   scope: access.scopes.Edit,
                 })
                   ? "btn btn-sm btn-success "
@@ -50,7 +50,7 @@ export default function Category() {
             <button
               className={`${
                 AuthGuard({
-                  resource: access.resources.Category,
+                  resource: access.resources.Event,
                   scope: access.scopes.Delete,
                 })
                   ? "btn btn-sm btn-success "

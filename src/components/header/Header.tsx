@@ -18,6 +18,7 @@ import {
 } from "reactstrap";
 
 import { useAuth } from "react-oidc-context";
+import { access, AuthGuard } from "../auth-guard/AuthGuard";
 
 const Header = ({ authProvider }: any) => {
   const navigate = useNavigate();
@@ -70,28 +71,38 @@ const Header = ({ authProvider }: any) => {
                 </NavItem>
               )}
               {isAuthenticated && (
-                <NavItem>
-                  <RouterNavLink
-                    to="/category"
-                    className={({ isActive }) =>
-                      isActive ? "router-link-exact-active" : "nav-link"
-                    }
-                  >
-                    Category
-                  </RouterNavLink>
-                </NavItem>
+                <AuthGuard
+                  resource={access.resources.Category}
+                  scope={access.scopes.View}
+                >
+                  <NavItem>
+                    <RouterNavLink
+                      to="/category"
+                      className={({ isActive }) =>
+                        isActive ? "router-link-exact-active" : "nav-link"
+                      }
+                    >
+                      Category
+                    </RouterNavLink>
+                  </NavItem>
+                </AuthGuard>
               )}
               {isAuthenticated && (
-                <NavItem>
-                  <RouterNavLink
-                    to="/landing"
-                    className={({ isActive }) =>
-                      isActive ? "router-link-exact-active" : "nav-link"
-                    }
-                  >
-                    Event
-                  </RouterNavLink>
-                </NavItem>
+                <AuthGuard
+                  resource={access.resources.Event}
+                  scope={access.scopes.View}
+                >
+                  <NavItem>
+                    <RouterNavLink
+                      to="/event"
+                      className={({ isActive }) =>
+                        isActive ? "router-link-exact-active" : "nav-link"
+                      }
+                    >
+                      Event
+                    </RouterNavLink>
+                  </NavItem>
+                </AuthGuard>
               )}
             </Nav>
             <Nav className="d-none d-md-block" navbar>

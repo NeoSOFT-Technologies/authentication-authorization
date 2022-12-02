@@ -15,6 +15,7 @@ import Update from "./pages/mock-data/Update";
 import List from "./pages/mock-data/List";
 import Category from "./pages/category/Category";
 import { access, AuthGuard } from "./components/auth-guard/AuthGuard";
+import Event from "./pages/event/Event";
 initFontAwesome();
 
 function App({ authProvider }: any) {
@@ -41,6 +42,18 @@ function App({ authProvider }: any) {
                   protect={access.protect}
                 >
                   <Category />
+                </AuthGuard>
+              }
+            />
+            <Route
+              path="/event"
+              element={
+                <AuthGuard
+                  resource={access.resources.Event}
+                  scope={access.scopes.View}
+                  protect={access.protect}
+                >
+                  <Event />
                 </AuthGuard>
               }
             />

@@ -43,7 +43,7 @@ function permissionFunction(token: any) {
   return [
     {
       resource: resources.Category,
-      scopes: [scopes.Create, scopes.View],
+      scopes: [scopes.View],
     },
     {
       resource: resources.Event,
