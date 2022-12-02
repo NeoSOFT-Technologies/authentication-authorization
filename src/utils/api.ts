@@ -1,10 +1,12 @@
 import axios from "axios";
 
-const defaultBaseUrl =
-  process.env.REACT_APP_API_BASEURL || "http://localhost:3000";
+// const defaultBaseUrl =
+//   process.env.REACT_APP_API_BASEURL || "http://localhost:3000";
+const defaultBackendUrl =
+  process.env.REACT_APP_API_Backend || "localhost:44369/api/v1/";
 class ApiFactoryWrapper {
   private baseURL;
-  constructor(URL: string = defaultBaseUrl) {
+  constructor(URL: string = defaultBackendUrl) {
     this.baseURL = URL;
   }
 
