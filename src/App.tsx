@@ -16,6 +16,7 @@ import List from "./pages/mock-data/List";
 import Category from "./pages/category/Category";
 import { access, AuthGuard } from "./components/auth-guard/AuthGuard";
 import Event from "./pages/event/Event";
+import CreateCategory from "./pages/category/CreateCategory";
 initFontAwesome();
 
 function App({ authProvider }: any) {
@@ -33,6 +34,7 @@ function App({ authProvider }: any) {
             <Route path="/list" element={<List />} />
             <Route path="/create" element={<Create />} />
             <Route path="/update" element={<Update />} />
+            <Route path="/createCat" element={<CreateCategory />} />
             <Route
               path="/category"
               element={

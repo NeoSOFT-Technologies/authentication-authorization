@@ -1,8 +1,13 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { access, AuthGuard } from "../../components/auth-guard/AuthGuard";
 
 export default function Category() {
+  const navigate = useNavigate();
+  const NavigateCreateCategory = () => {
+    navigate("/createCat");
+  };
   return (
     <div className="col-lg-12 grid-margin stretch-card">
       <Card>
@@ -32,6 +37,7 @@ export default function Category() {
                   ? "btn btn-sm btn-success "
                   : "btn btn-sm btn-danger"
               } mr-3`}
+              onClick={() => NavigateCreateCategory()}
             >
               Create
             </button>
