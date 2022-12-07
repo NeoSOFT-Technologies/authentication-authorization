@@ -1,5 +1,5 @@
 import jwt_decode from "jwt-decode";
-
+import { access } from "../components/auth-guard/AuthGuard";
 export interface IPermission {
   resource?: string;
   scopes: string[];
@@ -42,6 +42,7 @@ export const getDecodeToken: any = () => {
 };
 
 function permissionFunction(token: any) {
+  access.name = token.name;
   return [
     {
       resource: resources.Category,
@@ -53,11 +54,11 @@ function permissionFunction(token: any) {
     },
     {
       resource: resources.Order,
-      scopes: token && token.permission !== undefined ? token.permission : "",
+      scopes: [],
     },
     {
       resource: resources.User,
-      scopes: [scopes.View],
+      scopes: [],
     },
   ];
 }

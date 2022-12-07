@@ -13,12 +13,15 @@ import Footer from "./components/footer/Footer";
 import Create from "./pages/mock-data/Create";
 import Update from "./pages/mock-data/Update";
 import List from "./pages/mock-data/List";
-import Category from "./pages/category/Category";
 import { access, AuthGuard } from "./components/auth-guard/AuthGuard";
-import Event from "./pages/event/Event";
 import CreateCategory from "./pages/category/CreateCategory";
 import Delete from "./pages/category/Delete";
+import View from "./pages/category/View";
 import ResourceAPIs from "./pages/resource-apis/ResourceAPIs";
+import CreateEvent from "./pages/event/CreateEvent";
+import DeleteEvent from "./pages/event/DeleteEvent";
+import ViewEvent from "./pages/event/ViewEvent";
+import UpdateEvent from "./pages/event/UpdateEvent";
 initFontAwesome();
 
 function App({ authProvider }: any) {
@@ -36,8 +39,31 @@ function App({ authProvider }: any) {
             <Route path="/list" element={<List />} />
             <Route path="/create" element={<Create />} />
             {/* <Route path="/update" element={<Update />} /> */}
-            <Route path="/createCat" element={<CreateCategory />} />
             <Route path="/resourceApis" element={<ResourceAPIs />} />
+            <Route
+              path="/viewCategory"
+              element={
+                <AuthGuard
+                  resource={access.resources.Category}
+                  scope={access.scopes.View}
+                  protect={access.protect}
+                >
+                  <View />
+                </AuthGuard>
+              }
+            />
+            <Route
+              path="/createCategory"
+              element={
+                <AuthGuard
+                  resource={access.resources.Category}
+                  scope={access.scopes.Create}
+                  protect={access.protect}
+                >
+                  <CreateCategory />
+                </AuthGuard>
+              }
+            />
             <Route
               path="/updateCategory"
               element={
@@ -51,7 +77,7 @@ function App({ authProvider }: any) {
               }
             />
             <Route
-              path="/delete"
+              path="/deleteCategory"
               element={
                 <AuthGuard
                   resource={access.resources.Category}
@@ -63,26 +89,146 @@ function App({ authProvider }: any) {
               }
             />
             <Route
-              path="/category"
-              element={
-                <AuthGuard
-                  resource={access.resources.Category}
-                  scope={access.scopes.View}
-                  protect={access.protect}
-                >
-                  <Category />
-                </AuthGuard>
-              }
-            />
-            <Route
-              path="/event"
+              path="/viewEvent"
               element={
                 <AuthGuard
                   resource={access.resources.Event}
                   scope={access.scopes.View}
                   protect={access.protect}
                 >
-                  <Event />
+                  <ViewEvent />
+                </AuthGuard>
+              }
+            />
+            <Route
+              path="/createEvent"
+              element={
+                <AuthGuard
+                  resource={access.resources.Event}
+                  scope={access.scopes.Create}
+                  protect={access.protect}
+                >
+                  <CreateEvent />
+                </AuthGuard>
+              }
+            />
+            <Route
+              path="/updateEvent"
+              element={
+                <AuthGuard
+                  resource={access.resources.Event}
+                  scope={access.scopes.Edit}
+                  protect={access.protect}
+                >
+                  <UpdateEvent />
+                </AuthGuard>
+              }
+            />
+            <Route
+              path="/deleteEvent"
+              element={
+                <AuthGuard
+                  resource={access.resources.Event}
+                  scope={access.scopes.Delete}
+                  protect={access.protect}
+                >
+                  <DeleteEvent />
+                </AuthGuard>
+              }
+            />
+            <Route
+              path="/viewOrder"
+              element={
+                <AuthGuard
+                  resource={access.resources.Order}
+                  scope={access.scopes.View}
+                  protect={access.protect}
+                >
+                  <LandingPage />
+                </AuthGuard>
+              }
+            />
+            <Route
+              path="/createOrder"
+              element={
+                <AuthGuard
+                  resource={access.resources.Order}
+                  scope={access.scopes.Create}
+                  protect={access.protect}
+                >
+                  <LandingPage />
+                </AuthGuard>
+              }
+            />
+            <Route
+              path="/updateOrder"
+              element={
+                <AuthGuard
+                  resource={access.resources.Order}
+                  scope={access.scopes.Edit}
+                  protect={access.protect}
+                >
+                  <LandingPage />
+                </AuthGuard>
+              }
+            />
+            <Route
+              path="/deleteOrder"
+              element={
+                <AuthGuard
+                  resource={access.resources.Order}
+                  scope={access.scopes.Delete}
+                  protect={access.protect}
+                >
+                  <LandingPage />
+                </AuthGuard>
+              }
+            />
+            <Route
+              path="/viewUser"
+              element={
+                <AuthGuard
+                  resource={access.resources.User}
+                  scope={access.scopes.View}
+                  protect={access.protect}
+                >
+                  <LandingPage />
+                </AuthGuard>
+              }
+            />
+            <Route
+              path="/createUser"
+              element={
+                <AuthGuard
+                  resource={access.resources.User}
+                  scope={access.scopes.Create}
+                  protect={access.protect}
+                >
+                  <LandingPage />
+                </AuthGuard>
+              }
+            />
+            <Route
+              path="/updateUser"
+              element={
+                <AuthGuard
+                  resource={access.resources.User}
+                  scope={access.scopes.Edit}
+                  protect={access.protect}
+                >
+                  <LandingPage />
+                </AuthGuard>
+              }
+            />
+            <Route
+              path="/deleteUser"
+              element={
+                <AuthGuard
+                  resource={access.resources.User}
+                  scope={access.scopes.Delete}
+                  protect={access.protect}
+                >
+                  <LandingPage />
                 </AuthGuard>
               }
             />

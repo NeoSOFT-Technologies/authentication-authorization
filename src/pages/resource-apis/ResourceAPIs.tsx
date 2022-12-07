@@ -5,14 +5,21 @@ import { access, AuthGuard } from "../../components/auth-guard/AuthGuard";
 
 export default function ResourceAPIs() {
   const navigate = useNavigate();
-  const NavigateCreateCategory = () => {
-    navigate("/createCat");
+  const NavigateToView = (key: any) => {
+    navigate("/view" + key);
+    console.log(key);
   };
-  const NavigateUpdateCategory = () => {
-    navigate("/updateCategory");
+  const NavigateToCreate = (key: any) => {
+    navigate("/create" + key);
+    console.log(key);
   };
-  const NavigateDeleteCategory = () => {
-    navigate("/delete");
+  const NavigateToUpdate = (key: any) => {
+    navigate("/update" + key);
+    console.log(key);
+  };
+  const NavigateToDelete = (key: any) => {
+    navigate("/delete" + key);
+    console.log(key);
   };
   return (
     <div className="col-lg-12 grid-margin stretch-card">
@@ -42,6 +49,7 @@ export default function ResourceAPIs() {
                             ? "btn btn-sm btn-success "
                             : "btn btn-sm btn-danger"
                         } mr-3`}
+                        onClick={() => NavigateToView(key)}
                       >
                         View
                       </button>
@@ -54,7 +62,7 @@ export default function ResourceAPIs() {
                             ? "btn btn-sm btn-success "
                             : "btn btn-sm btn-danger"
                         } mr-3`}
-                        onClick={() => NavigateCreateCategory()}
+                        onClick={() => NavigateToCreate(key)}
                       >
                         Create
                       </button>
@@ -67,7 +75,7 @@ export default function ResourceAPIs() {
                             ? "btn btn-sm btn-success "
                             : "btn btn-sm btn-danger"
                         } mr-3`}
-                        onClick={() => NavigateUpdateCategory()}
+                        onClick={() => NavigateToUpdate(key)}
                       >
                         Update
                       </button>
@@ -80,7 +88,7 @@ export default function ResourceAPIs() {
                             ? "btn btn-sm btn-success "
                             : "btn btn-sm btn-danger"
                         } mr-3`}
-                        onClick={() => NavigateDeleteCategory()}
+                        onClick={() => NavigateToDelete(key)}
                       >
                         Delete
                       </button>
