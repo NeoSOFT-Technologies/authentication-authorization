@@ -17,6 +17,7 @@ import Category from "./pages/category/Category";
 import { access, AuthGuard } from "./components/auth-guard/AuthGuard";
 import Event from "./pages/event/Event";
 import CreateCategory from "./pages/category/CreateCategory";
+import Delete from "./pages/category/Delete";
 initFontAwesome();
 
 function App({ authProvider }: any) {
@@ -33,8 +34,32 @@ function App({ authProvider }: any) {
             <Route path="/profile" element={<Profile />} />
             <Route path="/list" element={<List />} />
             <Route path="/create" element={<Create />} />
-            <Route path="/update" element={<Update />} />
+            {/* <Route path="/update" element={<Update />} /> */}
             <Route path="/createCat" element={<CreateCategory />} />
+            <Route
+              path="/updateCategory"
+              element={
+                <AuthGuard
+                  resource={access.resources.Category}
+                  scope={access.scopes.Edit}
+                  protect={access.protect}
+                >
+                  <Update />
+                </AuthGuard>
+              }
+            />
+            <Route
+              path="/delete"
+              element={
+                <AuthGuard
+                  resource={access.resources.Category}
+                  scope={access.scopes.Delete}
+                  protect={access.protect}
+                >
+                  <Delete />
+                </AuthGuard>
+              }
+            />
             <Route
               path="/category"
               element={

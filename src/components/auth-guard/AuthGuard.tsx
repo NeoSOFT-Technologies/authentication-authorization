@@ -27,6 +27,7 @@ export const access: any = {
   resources: {
     Category: "category",
     Event: "event",
+    Order: "order",
   },
   scopes: {
     Create: "create",
@@ -34,6 +35,7 @@ export const access: any = {
     Delete: "delete",
     View: "view",
   },
+  name: "",
   protect: true,
 };
 // This will be used when Auth is turned off
