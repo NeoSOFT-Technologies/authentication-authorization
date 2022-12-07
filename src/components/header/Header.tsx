@@ -18,7 +18,7 @@ import {
 } from "reactstrap";
 
 import { useAuth } from "react-oidc-context";
-import { access, AuthGuard } from "../auth-guard/AuthGuard";
+// import { access, AuthGuard } from "../auth-guard/AuthGuard";
 
 const Header = ({ authProvider }: any) => {
   const navigate = useNavigate();
@@ -71,6 +71,18 @@ const Header = ({ authProvider }: any) => {
                 </NavItem>
               )}
               {isAuthenticated && (
+                <NavItem>
+                  <RouterNavLink
+                    to="/resourceApis"
+                    className={({ isActive }) =>
+                      isActive ? "router-link-exact-active" : "nav-link"
+                    }
+                  >
+                    Resource APIs
+                  </RouterNavLink>
+                </NavItem>
+              )}
+              {/* {isAuthenticated && (
                 <AuthGuard
                   resource={access.resources.Category}
                   scope={access.scopes.View}
@@ -103,7 +115,7 @@ const Header = ({ authProvider }: any) => {
                     </RouterNavLink>
                   </NavItem>
                 </AuthGuard>
-              )}
+              )} */}
             </Nav>
             <Nav className="d-none d-md-block" navbar>
               {!isAuthenticated && (

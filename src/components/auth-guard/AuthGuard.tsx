@@ -28,6 +28,7 @@ export const access: any = {
     Category: "category",
     Event: "event",
     Order: "order",
+    User: "user",
   },
   scopes: {
     Create: "create",

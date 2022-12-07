@@ -9,6 +9,8 @@ export interface IPermission {
 const resources: any = {
   Category: "category",
   Event: "event",
+  Order: "order",
+  User: "user",
 };
 const scopes: any = {
   Create: "create",
@@ -43,11 +45,19 @@ function permissionFunction(token: any) {
   return [
     {
       resource: resources.Category,
-      scopes: [scopes.View],
+      scopes: [scopes.View, scopes.Create, scopes.Edit],
     },
     {
       resource: resources.Event,
+      scopes: [scopes.View, scopes.Create],
+    },
+    {
+      resource: resources.Order,
       scopes: token && token.permission !== undefined ? token.permission : "",
+    },
+    {
+      resource: resources.User,
+      scopes: [scopes.View],
     },
   ];
 }
