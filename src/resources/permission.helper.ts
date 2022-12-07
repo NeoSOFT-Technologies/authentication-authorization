@@ -42,7 +42,7 @@ export const getDecodeToken: any = () => {
 };
 
 function permissionFunction(token: any) {
-  access.name = token.name;
+  access.name = token?.name;
   return [
     {
       resource: resources.Category,
