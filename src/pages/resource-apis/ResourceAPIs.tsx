@@ -7,19 +7,15 @@ export default function ResourceAPIs() {
   const navigate = useNavigate();
   const NavigateToView = (key: any) => {
     navigate("/view" + key);
-    console.log(key);
   };
   const NavigateToCreate = (key: any) => {
     navigate("/create" + key);
-    console.log(key);
   };
   const NavigateToUpdate = (key: any) => {
     navigate("/update" + key);
-    console.log(key);
   };
   const NavigateToDelete = (key: any) => {
     navigate("/delete" + key);
-    console.log(key);
   };
   return (
     <div className="col-lg-12 grid-margin stretch-card">
