@@ -8,7 +8,7 @@ const initialState: IListCategoryState = {
   message: undefined,
   error: undefined,
   data: undefined,
-  config: undefined,
+  url: undefined,
 };
 
 export const getCategoryList = createAsyncThunk(
@@ -40,7 +40,7 @@ const slice = createSlice({
       state.message = action.payload.data.message;
       state.error = action.payload.data.error;
       state.data = action.payload.data.data;
-      state.config = action.payload.config.url;
+      state.url = action.payload.config.url;
       console.log("actionConfig", action.payload.config.url);
       // console.log("state.data", state.data);
     });

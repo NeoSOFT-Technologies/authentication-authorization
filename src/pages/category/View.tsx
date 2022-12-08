@@ -31,7 +31,7 @@ export default function View() {
               <h4>Request Url</h4>
               <i>
                 {process.env.REACT_APP_API_Backend}
-                {!state.loading && state.config}
+                {!state.loading && state.url}
               </i>
             </div>
             <hr />

@@ -8,7 +8,7 @@ const initialState: IAddCategoryState = {
   loading: false,
   error: undefined,
   data: undefined,
-  config: undefined,
+  url: undefined,
 };
 
 export const addNewApi = createAsyncThunk(
@@ -38,7 +38,7 @@ const slice = createSlice({
       state.loading = false;
       state.categoryAdded = true;
       state.data = action.payload.data.data;
-      state.config = action.payload.data.config.url;
+      state.url = action.payload.config.url;
     });
     builder.addCase(addNewApi.rejected, (state, action) => {
       state.loading = false;

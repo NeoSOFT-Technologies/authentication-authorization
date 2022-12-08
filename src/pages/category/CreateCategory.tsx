@@ -67,12 +67,13 @@ export default function CreateCategory() {
                       <h4>Request Url</h4>
                       <i>
                         {process.env.REACT_APP_API_Backend}
-                        {!state.loading && state.config}
+                        {!state.loading && state.url}
                       </i>
                     </div>
                     <hr />
                     <div>
                       <h4>Request Payload</h4>
+                      {JSON.stringify(apisForm, undefined, 4)}
                     </div>
                     <hr />
                     <div>

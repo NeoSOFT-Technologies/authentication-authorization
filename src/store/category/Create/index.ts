@@ -3,7 +3,7 @@ export interface IAddCategoryState {
   loading: boolean;
   error?: string | null;
   data?: ICategoryData | null;
-  config?: string;
+  url?: string;
 }
 
 export interface ICategoryFormData {
