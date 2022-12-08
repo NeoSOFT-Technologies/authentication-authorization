@@ -1,23 +1,30 @@
-import React, { useState, useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { getCategoryList } from "../../store/category/List/slice";
-import { IListCategoryState } from "../../store/category/List";
+import React, { useEffect } from "react";
+import { useAppSelector } from "../../store/hooks";
+// import { getCategoryList } from "../../store/category/List/slice";
+// import { IListCategoryState } from "../../store/category/List";
 import { Card } from "react-bootstrap";
 
 export default function View() {
-  const dispatch = useAppDispatch();
-  const [category, setCategory] = useState<IListCategoryState | any>();
+  // const dispatch = useAppDispatch();
+  // const Categories: IListCategoryState = useAppSelector(
+  //   (State) => State.categoryListState
+  // );
+  // let result: any;
+  // const [category, setCategory] = useState<IListCategoryState | any>();
 
   const state = useAppSelector((RootState) => RootState.getCategoryList);
   console.log("State:", state);
   console.log("State data:", state.data);
   // const listData: any = state;
-
+  // const getListFunction = async () => {
+  //   result = await dispatch(getCategoryList());
+  //   await setCategory(result?.payload);
+  //   console.log("Categories", Categories);
+  //   console.log("category", category);
+  //   console.log(category, "result", result);
+  // };
   useEffect(() => {
-    const result = dispatch(getCategoryList());
-    setCategory(result);
-    console.log("category", category);
-    console.log("result", result);
+    // getListFunction();
   }, []);
 
   return (
