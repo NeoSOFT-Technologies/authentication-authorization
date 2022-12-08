@@ -40,7 +40,12 @@ export const access: any = {
   protect: true,
 };
 // This will be used when Auth is turned off
-const menus: string[] = [access.resources.Category, access.resources.Event];
+const menus: string[] = [
+  access.resources.Category,
+  access.resources.Event,
+  access.resources.Order,
+  access.resources.User,
+];
 
 function isChildren(children: any, protect: any, authorized: any) {
   // This will execute when AuthGuard is invoked from AppRoutes

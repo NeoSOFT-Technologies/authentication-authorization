@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
-import { addCategoryService } from "../../services/category";
+import { addCategoryService } from "../../../services/category";
 import { IAddCategoryState, ICategoryFormData } from ".";
 
 const initialState: IAddCategoryState = {
@@ -11,7 +11,7 @@ const initialState: IAddCategoryState = {
 };
 
 export const addNewApi = createAsyncThunk(
-  "category/createcategory",
+  "category/createCategory",
   async (conditions: ICategoryFormData) => {
     try {
       const response = await addCategoryService(conditions);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card } from "react-bootstrap";
-import { ICategoryFormData } from "../../store/category";
-import { addNewApi } from "../../store/category/slice";
+import { ICategoryFormData } from "../../store/category/Create";
+import { addNewApi } from "../../store/category/Create/slice";
 import { useAppDispatch } from "../../store/hooks";
 
 export default function CreateCategory() {
