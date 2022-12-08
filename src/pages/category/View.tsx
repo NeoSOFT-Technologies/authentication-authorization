@@ -11,7 +11,6 @@ export default function View() {
   const state = useAppSelector((RootState) => RootState.getCategoryList);
   console.log("State:", state);
   console.log("State data:", state.data);
-  // const listData: any = state;
 
   useEffect(() => {
     const result = dispatch(getCategoryList());
@@ -39,9 +38,16 @@ export default function View() {
             <hr />
             <div>
               <h4>Response data</h4>
-              {/* <textarea
-                value={listData.map((e: any) => JSON.stringify(e))}
-              ></textarea> */}
+              <div>
+                {!state.loading && (
+                  <textarea
+                    rows={11}
+                    cols={60}
+                    defaultValue={JSON.stringify(state, undefined, 4)}
+                    readOnly
+                  ></textarea>
+                )}
+              </div>
             </div>
           </div>
         </Card.Body>

@@ -1,8 +1,8 @@
 export interface IListCategoryState {
   loading: boolean;
+  message?: string;
   error?: string | null;
   data?: ICategoryData | null;
-  message?: string;
 }
 
 export interface ICategoryData {

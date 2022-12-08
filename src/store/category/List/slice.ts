@@ -5,9 +5,9 @@ import { IListCategoryState } from "./index";
 
 const initialState: IListCategoryState = {
   loading: false,
+  message: undefined,
   error: undefined,
   data: undefined,
-  message: undefined,
 };
 
 export const getCategoryList = createAsyncThunk(
@@ -36,6 +36,8 @@ const slice = createSlice({
     });
     builder.addCase(getCategoryList.fulfilled, (state, action) => {
       state.loading = false;
+      state.message = action.payload.message;
+      state.error = action.payload.error;
       state.data = action.payload.data;
       // console.log("state.data", state.data);
     });
