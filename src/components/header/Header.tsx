@@ -58,7 +58,7 @@ const Header = ({ authProvider }: any) => {
                   Home
                 </RouterNavLink>
               </NavItem>
-              {isAuthenticated && (
+              {/* {isAuthenticated && (
                 <NavItem>
                   <RouterNavLink
                     to="/list"
@@ -69,7 +69,7 @@ const Header = ({ authProvider }: any) => {
                     External API
                   </RouterNavLink>
                 </NavItem>
-              )}
+              )} */}
               {isAuthenticated && (
                 <NavItem>
                   <RouterNavLink

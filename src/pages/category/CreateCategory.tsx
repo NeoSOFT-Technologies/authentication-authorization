@@ -46,6 +46,7 @@ export default function CreateCategory() {
                   onChange={validateForm}
                   required
                 />
+                <br />
                 <button
                   className="btn btn-sm btn-success btn-md d-flex float-right mb-3 mr-3"
                   type="submit"
