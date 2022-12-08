@@ -14,7 +14,7 @@ import Create from "./pages/mock-data/Create";
 import Update from "./pages/mock-data/Update";
 import List from "./pages/mock-data/List";
 import { access, AuthGuard } from "./components/auth-guard/AuthGuard";
-import CreateCategory from "./pages/category/CreateCategory";
+import CreateCategory from "./pages/category/Create";
 import Delete from "./pages/category/Delete";
 import View from "./pages/category/View";
 import ResourceAPIs from "./pages/resource-apis/ResourceAPIs";

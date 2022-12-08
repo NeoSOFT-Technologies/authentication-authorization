@@ -4,7 +4,7 @@ import { ICategoryFormData } from "../../store/category/Create";
 import { addNewApi } from "../../store/category/Create/slice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
-export default function CreateCategory() {
+export default function Create() {
   const dispatch = useAppDispatch();
   // const categoryName = "Movie";
   const state = useAppSelector((RootState) => RootState.addCategory);
@@ -33,7 +33,6 @@ export default function CreateCategory() {
         <Card.Body>
           <h2>Request</h2>
           <div>
-            {/* <div>Name: {apisForm.name} </div> */}
             <div className="align-items-center">
               <form onSubmit={submit} data-testid="form-input">
                 <label>Name :</label>
@@ -46,7 +45,6 @@ export default function CreateCategory() {
                   onChange={validateForm}
                   required
                 />
-                <br />
                 <button
                   className="btn btn-sm btn-success btn-md d-flex float-right mb-3 mr-3"
                   type="submit"
@@ -94,9 +92,6 @@ export default function CreateCategory() {
                 </Card.Body>
               </Card>
             </div>
-            {/* <button type="submit" onClick={() => submit()}>
-              Excute
-            </button> */}
           </div>
         </Card.Body>
       </Card>
