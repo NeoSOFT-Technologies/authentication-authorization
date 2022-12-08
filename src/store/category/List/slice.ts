@@ -36,7 +36,8 @@ const slice = createSlice({
     });
     builder.addCase(getCategoryList.fulfilled, (state, action) => {
       state.loading = false;
-      state.data = action.payload;
+      state.data = action.payload.data;
+      // console.log("state.data", state.data);
     });
     builder.addCase(getCategoryList.rejected, (state, action) => {
       state.loading = false;

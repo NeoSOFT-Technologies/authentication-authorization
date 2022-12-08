@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import loginReducer from "./login/slice";
+import getCategoryListReducer from "./category/List/slice";
 
 const store = configureStore({
   reducer: {
     login: loginReducer,
+    getCategoryList: getCategoryListReducer,
   },
 });
 
