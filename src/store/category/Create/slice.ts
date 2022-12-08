@@ -8,6 +8,7 @@ const initialState: IAddCategoryState = {
   loading: false,
   error: undefined,
   data: undefined,
+  config: undefined,
 };
 
 export const addNewApi = createAsyncThunk(
@@ -15,7 +16,7 @@ export const addNewApi = createAsyncThunk(
   async (conditions: ICategoryFormData) => {
     try {
       const response = await addCategoryService(conditions);
-      return response.data;
+      return response;
     } catch (error) {
       const myError = error as Error | AxiosError;
       throw axios.isAxiosError(myError) && myError.response
@@ -36,7 +37,8 @@ const slice = createSlice({
     builder.addCase(addNewApi.fulfilled, (state, action) => {
       state.loading = false;
       state.categoryAdded = true;
-      state.data = action.payload;
+      state.data = action.payload.data.data;
+      state.config = action.payload.data.config.url;
     });
     builder.addCase(addNewApi.rejected, (state, action) => {
       state.loading = false;

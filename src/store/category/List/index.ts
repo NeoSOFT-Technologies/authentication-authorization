@@ -3,6 +3,7 @@ export interface IListCategoryState {
   message?: string;
   error?: string | null;
   data?: ICategoryData | null;
+  config?: string;
 }
 
 export interface ICategoryData {

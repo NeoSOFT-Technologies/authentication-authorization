@@ -8,6 +8,7 @@ const initialState: IListCategoryState = {
   message: undefined,
   error: undefined,
   data: undefined,
+  config: undefined,
 };
 
 export const getCategoryList = createAsyncThunk(
@@ -15,8 +16,8 @@ export const getCategoryList = createAsyncThunk(
   async () => {
     try {
       const response = await getAllCategoryService();
-      console.log("response", response.data);
-      return response.data;
+      console.log("response.config", response.config);
+      return response;
     } catch (error) {
       const myError = error as Error | AxiosError;
       throw axios.isAxiosError(myError) && myError.response
@@ -36,9 +37,11 @@ const slice = createSlice({
     });
     builder.addCase(getCategoryList.fulfilled, (state, action) => {
       state.loading = false;
-      state.message = action.payload.message;
-      state.error = action.payload.error;
-      state.data = action.payload.data;
+      state.message = action.payload.data.message;
+      state.error = action.payload.data.error;
+      state.data = action.payload.data.data;
+      state.config = action.payload.config.url;
+      console.log("actionConfig", action.payload.config.url);
       // console.log("state.data", state.data);
     });
     builder.addCase(getCategoryList.rejected, (state, action) => {
