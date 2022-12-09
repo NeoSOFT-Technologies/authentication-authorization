@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Card } from "react-bootstrap";
+import RequestResponseData from "../../components/request-response-data/RequestResponseData";
 import { ICategoryFormData } from "../../store/category/Create";
 import { addNewApi } from "../../store/category/Create/slice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
@@ -63,7 +64,7 @@ export default function Create() {
         </Card>
       </div>
       <br></br>
-      <div>
+      {/* <div>
         <Card>
           <Card.Header>
             <h2>Request & Response data</h2>
@@ -99,7 +100,8 @@ export default function Create() {
             </div>
           </Card.Body>
         </Card>
-      </div>
+      </div> */}
+      <RequestResponseData state={state} />
     </div>
   );
 }
