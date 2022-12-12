@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "LElukTN5XmenSTPBk7sdh6GpBuY8/bhRuDQkmXRB+ZC3IUMYoQzrT0hfgB4RF8Q64jfEEiXoOqSkMvp3LPmD7w==",
+  "success": true,
+  "projectFilePath": "D:\\Projects\\authentication-authorization\\API\\src\\Core\\BoilerPlate.Domain\\BoilerPlate.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,15 @@
+E:\boilerplateExternal\BoilerPlate\src\Core\BoilerPlate.Application\bin\Debug\net6.0\BoilerPlate.Application.deps.json
+E:\boilerplateExternal\BoilerPlate\src\Core\BoilerPlate.Application\bin\Debug\net6.0\BoilerPlate.Application.dll
+E:\boilerplateExternal\BoilerPlate\src\Core\BoilerPlate.Application\bin\Debug\net6.0\BoilerPlate.Application.pdb
+E:\boilerplateExternal\BoilerPlate\src\Core\BoilerPlate.Application\bin\Debug\net6.0\BoilerPlate.Domain.dll
+E:\boilerplateExternal\BoilerPlate\src\Core\BoilerPlate.Application\bin\Debug\net6.0\BoilerPlate.Domain.pdb
+E:\boilerplateExternal\BoilerPlate\src\Core\BoilerPlate.Application\obj\Debug\net6.0\BoilerPlate.Application.csproj.AssemblyReference.cache
+E:\boilerplateExternal\BoilerPlate\src\Core\BoilerPlate.Application\obj\Debug\net6.0\BoilerPlate.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\boilerplateExternal\BoilerPlate\src\Core\BoilerPlate.Application\obj\Debug\net6.0\BoilerPlate.Application.AssemblyInfoInputs.cache
+E:\boilerplateExternal\BoilerPlate\src\Core\BoilerPlate.Application\obj\Debug\net6.0\BoilerPlate.Application.AssemblyInfo.cs
+E:\boilerplateExternal\BoilerPlate\src\Core\BoilerPlate.Application\obj\Debug\net6.0\BoilerPlate.Application.csproj.CoreCompileInputs.cache
+E:\boilerplateExternal\BoilerPlate\src\Core\BoilerPlate.Application\obj\Debug\net6.0\BoilerPlate.Application.csproj.CopyComplete
+E:\boilerplateExternal\BoilerPlate\src\Core\BoilerPlate.Application\obj\Debug\net6.0\BoilerPlate.Application.dll
+E:\boilerplateExternal\BoilerPlate\src\Core\BoilerPlate.Application\obj\Debug\net6.0\refint\BoilerPlate.Application.dll
+E:\boilerplateExternal\BoilerPlate\src\Core\BoilerPlate.Application\obj\Debug\net6.0\BoilerPlate.Application.pdb
+E:\boilerplateExternal\BoilerPlate\src\Core\BoilerPlate.Application\obj\Debug\net6.0\ref\BoilerPlate.Application.dll
