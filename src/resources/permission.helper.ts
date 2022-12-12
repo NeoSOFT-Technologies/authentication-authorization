@@ -22,7 +22,7 @@ const scopes: any = {
 function getLocalAccessToken() {
   let user: any =
     localStorage.getItem(
-      "oidc.user:https://dev-ba0ok41t.us.auth0.com:GdSP4Sfu2zMq9trCY8pxHgtJ78aUPOXT"
+      "oidc.user:https://login.microsoftonline.com/1e3bab2c-ff49-4d6c-827a-5017e6fd859c:93220d6d-a71a-4e6f-9919-49ab354c35a0"
     ) || undefined;
   if (user) {
     user = JSON.parse(user);
