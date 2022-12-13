@@ -22,6 +22,7 @@ import CreateEvent from "./pages/event/CreateEvent";
 import DeleteEvent from "./pages/event/DeleteEvent";
 import ViewEvent from "./pages/event/ViewEvent";
 import UpdateEvent from "./pages/event/UpdateEvent";
+import ExtendedAPIs from "./pages/resource-apis/ExtendedAPIs";
 initFontAwesome();
 
 function App({ authProvider }: any) {
@@ -40,6 +41,7 @@ function App({ authProvider }: any) {
             <Route path="/create" element={<Create />} />
             {/* <Route path="/update" element={<Update />} /> */}
             <Route path="/resourceApis" element={<ResourceAPIs />} />
+            <Route path="/extendedApis" element={<ExtendedAPIs />} />
             <Route
               path="/viewCategory"
               element={

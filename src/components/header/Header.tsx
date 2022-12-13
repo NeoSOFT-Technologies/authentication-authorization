@@ -82,6 +82,18 @@ const Header = ({ authProvider }: any) => {
                   </RouterNavLink>
                 </NavItem>
               )}
+              {isAuthenticated && (
+                <NavItem>
+                  <RouterNavLink
+                    to="/extendedApis"
+                    className={({ isActive }) =>
+                      isActive ? "router-link-exact-active" : "nav-link"
+                    }
+                  >
+                    Extended APIs
+                  </RouterNavLink>
+                </NavItem>
+              )}
               {/* {isAuthenticated && (
                 <AuthGuard
                   resource={access.resources.Category}
