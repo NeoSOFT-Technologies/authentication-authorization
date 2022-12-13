@@ -384,3 +384,6 @@ MigrationBackup/
 FodyWeavers.xsd
 /worker-logs
 /gateway-logs
+
+
+.suo
