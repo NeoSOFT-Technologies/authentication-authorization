@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 
-export default function RequestResponseData({ state }: any) {
+export default function RequestResponseData({ state, data }: any) {
   console.log("Common Component State:", state);
   return (
     <div>
@@ -21,6 +21,7 @@ export default function RequestResponseData({ state }: any) {
             <hr />
             <div>
               <h4>Request Payload</h4>
+              {JSON.stringify(data, undefined, 4)}
             </div>
             <hr />
             <div>
