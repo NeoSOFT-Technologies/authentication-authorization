@@ -101,7 +101,7 @@ export default function Create() {
           </Card.Body>
         </Card>
       </div> */}
-      <RequestResponseData state={state} />
+      <RequestResponseData state={state} data={apisForm} />
     </div>
   );
 }
