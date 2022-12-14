@@ -21,7 +21,7 @@ export default function RequestResponseData({ state, data }: any) {
             <hr />
             <div>
               <h4>Request Payload</h4>
-              {JSON.stringify(data, undefined, 4)}
+              {data !== undefined ? JSON.stringify(data, undefined, 4) : "None"}
             </div>
             <hr />
             <div>

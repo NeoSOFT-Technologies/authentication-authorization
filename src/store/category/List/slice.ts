@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
 import { getAllCategoryService } from "../../../services/category";
+import error from "../../../utils/error";
 import { IListCategoryState } from "./index";
 
 const initialState: IListCategoryState = {
@@ -18,8 +19,8 @@ export const getCategoryList = createAsyncThunk(
       const response = await getAllCategoryService();
       console.log("response.config", response.config);
       return response;
-    } catch (error) {
-      const myError = error as Error | AxiosError;
+    } catch (_error) {
+      const myError = _error as Error | AxiosError;
       throw axios.isAxiosError(myError) && myError.response
         ? myError.response.data.Errors[0]
         : myError.message;
@@ -47,6 +48,7 @@ const slice = createSlice({
     builder.addCase(getCategoryList.rejected, (state, action) => {
       state.loading = false;
       action.payload = action.error;
+      state.error = error(action.payload);
     });
   },
 });
