@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
 import { getAllEventService } from "../../../services/event";
+import error from "../../../utils/error";
 import { IListEventState } from "./index";
 
 const initialState: IListEventState = {
@@ -15,8 +16,8 @@ export const getEventList = createAsyncThunk("event/getAllEvent", async () => {
   try {
     const response = await getAllEventService();
     return response;
-  } catch (error) {
-    const myError = error as Error | AxiosError;
+  } catch (_error) {
+    const myError = _error as Error | AxiosError;
     throw axios.isAxiosError(myError) && myError.response
       ? myError.response.data.Errors[0]
       : myError.message;
@@ -43,6 +44,7 @@ const slice = createSlice({
     builder.addCase(getEventList.rejected, (state, action) => {
       state.loading = false;
       action.payload = action.error;
+      state.error = error(action.payload);
     });
   },
 });
