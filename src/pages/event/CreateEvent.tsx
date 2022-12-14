@@ -4,6 +4,7 @@ import RequestResponseData from "../../components/request-response-data/RequestR
 import { IEventFormData } from "../../store/event/create";
 import { addNewEvent } from "../../store/event/create/slice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import DateTimePicker from "react-datetime-picker";
 
 export default function CreateEvent() {
   const dispatch = useAppDispatch();
@@ -12,11 +13,13 @@ export default function CreateEvent() {
     name: "",
     price: 0,
     artist: "",
-    date: "2022-12-18T06:04:37.918Z",
+    // date: "2022-12-18",
     description: "",
     imageurl: "",
     categoryId: "",
+    date: new Date(),
   });
+  const [date3, setDate] = useState(new Date());
 
   const validateForm = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -25,6 +28,8 @@ export default function CreateEvent() {
 
   const submit = async (event: React.FormEvent) => {
     event.preventDefault();
+    setEventForm({ ...eventForm, date: date3 });
+    console.log("submit", eventForm);
     await dispatch(
       addNewEvent({
         ...eventForm,
@@ -32,6 +37,7 @@ export default function CreateEvent() {
     );
   };
   console.log("event", eventForm);
+  console.log("date", date3);
   return (
     <div>
       <div>
@@ -86,12 +92,12 @@ export default function CreateEvent() {
                     <b>Date: </b>
                   </label>
                   <input
-                    type="text"
+                    type="date"
                     className="ml-2"
                     id="date"
                     placeholder="Enter Event Date"
                     name="date"
-                    // value={eventForm.date}
+                    value={eventForm.date}
                     onChange={validateForm}
                     required
                   /> */}
@@ -133,6 +139,14 @@ export default function CreateEvent() {
                     value={eventForm.categoryId}
                     onChange={validateForm}
                     required
+                  />
+                  <label>
+                    <b>Date: </b>
+                  </label>
+                  <DateTimePicker
+                    name="date1"
+                    onChange={setDate}
+                    value={date3}
                   />
                   <button
                     className="btn btn-sm btn-success btn-md d-flex float-right mb-3 mr-3"
