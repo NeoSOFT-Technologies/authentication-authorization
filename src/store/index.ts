@@ -4,7 +4,7 @@ import getCategoryListReducer from "./category/List/slice";
 import addCategoryReducer from "./category/Create/slice";
 import addEventReducer from "./event/create/slice";
 
-import getEventListReducer from "./event/create/list/slice";
+import getEventListReducer from "./event/list/slice";
 const store = configureStore({
   reducer: {
     login: loginReducer,

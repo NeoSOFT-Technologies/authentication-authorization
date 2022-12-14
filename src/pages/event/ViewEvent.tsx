@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import RequestResponseData from "../../components/request-response-data/RequestResponseData";
-import { getEventList } from "../../store/event/create/list/slice";
+import { getEventList } from "../../store/event/list/slice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
 export default function ViewEvent() {

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
-import { getAllEventService } from "../../../../services/event";
+import { getAllEventService } from "../../../services/event";
 import { IListEventState } from "./index";
 
 const initialState: IListEventState = {
