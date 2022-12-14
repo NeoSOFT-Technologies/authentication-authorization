@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
-import { addCategoryService } from "../../../services/category";
 import { IAddEventState, IEventFormData } from ".";
+import { addEventService } from "../../../services/event";
 
 const initialState: IAddEventState = {
   eventAdded: false,
@@ -11,11 +11,11 @@ const initialState: IAddEventState = {
   url: undefined,
 };
 
-export const addNewApi = createAsyncThunk(
-  "category/createCategory",
+export const addNewEvent = createAsyncThunk(
+  "event/createEvent",
   async (conditions: IEventFormData) => {
     try {
-      const response = await addCategoryService(conditions);
+      const response = await addEventService(conditions);
       return response;
     } catch (error) {
       const myError = error as Error | AxiosError;
@@ -31,16 +31,16 @@ const slice = createSlice({
   initialState,
   reducers: {},
   extraReducers(builder): void {
-    builder.addCase(addNewApi.pending, (state) => {
+    builder.addCase(addNewEvent.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(addNewApi.fulfilled, (state, action) => {
+    builder.addCase(addNewEvent.fulfilled, (state, action) => {
       state.loading = false;
       state.eventAdded = true;
       state.data = action.payload.data.data;
       state.url = action.payload.config.url;
     });
-    builder.addCase(addNewApi.rejected, (state, action) => {
+    builder.addCase(addNewEvent.rejected, (state, action) => {
       state.loading = false;
       action.payload = action.error;
     });

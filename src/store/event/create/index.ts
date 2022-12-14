@@ -10,8 +10,8 @@ export interface IEventFormData {
   name: string;
   price: number;
   artist: string;
-  date: Date;
   description: string;
+  date: string;
   imageurl: string;
   categoryId: string;
 }
