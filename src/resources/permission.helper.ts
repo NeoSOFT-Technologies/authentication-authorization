@@ -50,7 +50,7 @@ function permissionFunction(token: any) {
     },
     {
       resource: resources.Event,
-        scopes: [scopes.View, scopes.Create, scopes.Edit],
+      scopes: [scopes.View, scopes.Create, scopes.Edit],
     },
     {
       resource: resources.Order,
