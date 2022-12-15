@@ -11,9 +11,10 @@ export interface IEventFormData {
   price: number;
   artist: string;
   description: string;
-  date: string;
+  // date: string;
   imageurl: string;
   categoryId: string;
+  date: Date;
 }
 
 export interface IEventData {

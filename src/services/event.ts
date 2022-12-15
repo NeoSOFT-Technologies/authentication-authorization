@@ -15,6 +15,6 @@ export function updateEventService(data: IEventUpdateData) {
 export function getEventByIdService(Id: string) {
   return apiFactory().get(`Events/` + Id);
 }
-export function deleteEventService(Id: any) {
-  return apiFactory().post(`Events/` + Id);
+export function deleteEventService(Id: string) {
+  return apiFactory().delete(`Events/` + Id);
 }

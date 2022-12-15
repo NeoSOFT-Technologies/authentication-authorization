@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
 import { addCategoryService } from "../../../services/category";
 import { IAddCategoryState, ICategoryFormData } from ".";
+import error from "../../../utils/error";
 
 const initialState: IAddCategoryState = {
   categoryAdded: false,
@@ -17,8 +18,8 @@ export const addNewApi = createAsyncThunk(
     try {
       const response = await addCategoryService(conditions);
       return response;
-    } catch (error) {
-      const myError = error as Error | AxiosError;
+    } catch (_error) {
+      const myError = _error as Error | AxiosError;
       throw axios.isAxiosError(myError) && myError.response
         ? myError.response.data.Errors[0]
         : myError.message;
@@ -43,6 +44,8 @@ const slice = createSlice({
     builder.addCase(addNewApi.rejected, (state, action) => {
       state.loading = false;
       action.payload = action.error;
+
+      state.error = error(action.payload);
     });
   },
 });
