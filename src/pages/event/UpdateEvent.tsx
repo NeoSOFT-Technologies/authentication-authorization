@@ -1,8 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "react-bootstrap";
-// import RequestResponseData from "../../components/request-response-data/RequestResponseData";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import RequestResponseData from "../../components/request-response-data/RequestResponseData";
+import { IEventUpdateData } from "../../store/event/update";
+import { updateEvent } from "../../store/event/update/slice";
 
 export default function UpdateEvent() {
+  const dispatch = useAppDispatch();
+  const state = useAppSelector((RootState) => RootState.updateEvent);
+
+  const [updateEventForm, setUpdateEventForm] = useState<IEventUpdateData>({
+    eventId: "",
+    name: "",
+    price: 0,
+    artist: "",
+    date: "2023-12-18T06:04:37.918Z",
+    description: "",
+    imageurl: "",
+    categoryId: "",
+  });
+
+  const validateForm = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setUpdateEventForm({ ...updateEventForm, [name]: value });
+  };
+
+  const submit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    await dispatch(
+      updateEvent({
+        ...updateEventForm,
+      })
+    );
+  };
+  console.log("event", updateEventForm);
+
   return (
     <div>
       <div>
@@ -13,7 +45,7 @@ export default function UpdateEvent() {
           <Card.Body>
             <div>
               <div className="align-items-center">
-                <form data-testid="form-input">
+                <form onSubmit={submit} data-testid="form-input">
                   <div>
                     <label>
                       <b>Event Id: </b>
@@ -21,11 +53,11 @@ export default function UpdateEvent() {
                     <input
                       type="text"
                       className="ml-2"
-                      id="name"
-                      placeholder="Enter Category Name"
-                      name="name"
-                      // value={apisForm.name}
-                      // onChange={validateForm}
+                      id="eventId"
+                      name="eventId"
+                      placeholder="Enter Event Id"
+                      value={updateEventForm.eventId}
+                      onChange={validateForm}
                       required
                     />
                   </div>
@@ -38,10 +70,10 @@ export default function UpdateEvent() {
                       type="text"
                       className="ml-2"
                       id="name"
-                      placeholder="Enter Category Name"
                       name="name"
-                      // value={apisForm.name}
-                      // onChange={validateForm}
+                      placeholder="Enter Event Name"
+                      value={updateEventForm.name}
+                      onChange={validateForm}
                       required
                     />
                   </div>
@@ -53,11 +85,11 @@ export default function UpdateEvent() {
                     <input
                       type="text"
                       className="ml-2"
-                      id="name"
-                      placeholder="Enter Category Name"
-                      name="name"
-                      // value={apisForm.name}
-                      // onChange={validateForm}
+                      id="price"
+                      name="price"
+                      placeholder="Enter Price"
+                      value={updateEventForm.price}
+                      onChange={validateForm}
                       required
                     />
                   </div>
@@ -69,12 +101,11 @@ export default function UpdateEvent() {
                     <input
                       type="text"
                       className="ml-2"
-                      id="name"
-                      placeholder="Enter Category Name"
-                      name="name"
-                      // value={apisForm.name}
-                      // onChange={validateForm}
-                      required
+                      id="artist"
+                      name="artist"
+                      placeholder="Enter Artist Name"
+                      value={updateEventForm.artist}
+                      onChange={validateForm}
                     />
                   </div>
                   <br />
@@ -85,11 +116,11 @@ export default function UpdateEvent() {
                     <input
                       type="text"
                       className="ml-2"
-                      id="name"
-                      placeholder="Enter Category Name"
-                      name="name"
-                      // value={apisForm.name}
-                      // onChange={validateForm}
+                      id="date"
+                      name="date"
+                      placeholder="Enter Event Date"
+                      value={updateEventForm.date}
+                      onChange={validateForm}
                       required
                     />
                   </div>
@@ -101,12 +132,11 @@ export default function UpdateEvent() {
                     <input
                       type="text"
                       className="ml-2"
-                      id="name"
-                      placeholder="Enter Category Name"
-                      name="name"
-                      // value={apisForm.name}
-                      // onChange={validateForm}
-                      required
+                      id="description"
+                      name="description"
+                      placeholder="Enter Event Description"
+                      value={updateEventForm.description}
+                      onChange={validateForm}
                     />
                   </div>
                   <br />
@@ -117,11 +147,11 @@ export default function UpdateEvent() {
                     <input
                       type="text"
                       className="ml-2"
-                      id="name"
-                      placeholder="Enter Category Name"
-                      name="name"
-                      // value={apisForm.name}
-                      // onChange={validateForm}
+                      id="categoryId"
+                      name="categoryId"
+                      placeholder="Enter Category Id"
+                      value={updateEventForm.categoryId}
+                      onChange={validateForm}
                       required
                     />
                   </div>
@@ -141,7 +171,7 @@ export default function UpdateEvent() {
         </Card>
       </div>
       <br></br>
-      {/* <RequestResponseData /> */}
+      <RequestResponseData state={state} data={updateEventForm} />
     </div>
   );
 }
