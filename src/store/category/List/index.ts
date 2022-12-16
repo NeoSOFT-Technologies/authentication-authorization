@@ -2,7 +2,7 @@ export interface IListCategoryState {
   loading: boolean;
   message?: string;
   error?: string | null;
-  data?: ICategoryData | null;
+  data?: ICategoryData[] | null;
   url?: string;
 }
 
