@@ -77,7 +77,7 @@ export default function getUserPermissions(resource: string) {
   };
 
   const userResources: string[] = [];
-  if (permissions && permissions.length > 0) {
+  if (permissions && permissions.length > 0 && token !== undefined) {
     // This will get resource specific permissions/scopes
     if (resource) {
       for (const item of permissions) {
@@ -95,5 +95,7 @@ export default function getUserPermissions(resource: string) {
       }
       return userResources;
     }
+  } else {
+    return resourcePermission;
   }
 }

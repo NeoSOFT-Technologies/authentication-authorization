@@ -16,6 +16,7 @@ export const addNewEvent = createAsyncThunk(
   "event/createEvent",
   async (conditions: IEventFormData) => {
     try {
+      console.log("slice:", conditions);
       const response = await addEventService(conditions);
       return response;
     } catch (_error) {
