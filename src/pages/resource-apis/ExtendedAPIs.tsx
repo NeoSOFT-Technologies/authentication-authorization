@@ -2,6 +2,10 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { access, AuthGuard } from "../../components/auth-guard/AuthGuard";
+import {
+  permissionFunction,
+  getDecodeToken,
+} from "../../resources/permission.helper";
 
 export default function ExtendedAPIs() {
   const navigate = useNavigate();
@@ -17,6 +21,11 @@ export default function ExtendedAPIs() {
   const NavigateToDelete = (key: any) => {
     navigate("/delete" + key);
   };
+
+  const token = getDecodeToken();
+  const resourcePermission = permissionFunction(token);
+  // console.log("a value:", resourcePermission);
+
   return (
     <div className="col-lg-12 grid-margin stretch-card">
       <Card>
@@ -33,7 +42,21 @@ export default function ExtendedAPIs() {
               {Object.keys(access.resources).map((key) => {
                 return (
                   <div key={key}>
-                    <h2>{key}</h2>
+                    {/* <h2>{key}</h2> */}
+                    {
+                      // eslint-disable-next-line array-callback-return
+                      resourcePermission.map((a) => {
+                        if (
+                          a.resource === key.toLowerCase() &&
+                          a.scopes.length > 0
+                        ) {
+                          console.log("Key value with auth2 :", key);
+                          console.log(a.scopes.length);
+                          return <h2>{key}</h2>;
+                        }
+                        // eslint-disable-next-line react/jsx-key
+                      })
+                    }
                     <div>
                       {" "}
                       <AuthGuard

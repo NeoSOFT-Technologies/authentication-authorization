@@ -41,7 +41,7 @@ export const getDecodeToken: any = () => {
   return decoded;
 };
 
-function permissionFunction(token: any) {
+export function permissionFunction(token: any) {
   access.name = token?.name;
   return [
     {
