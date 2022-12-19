@@ -10,8 +10,6 @@ function getLocalAccessToken() {
   return user?.id_token;
 }
 
-const id_token = getLocalAccessToken();
-console.log(id_token);
 // const defaultBaseUrl =
 //   process.env.REACT_APP_API_BASEURL || "http://localhost:3000";
 const defaultBackendUrl =
@@ -31,6 +29,8 @@ class ApiFactoryWrapper {
   };
 
   buildHeader = (obj = {}) => {
+    const id_token = getLocalAccessToken();
+
     const header = {
       Accept: "application/json",
       "Content-Type": "application/json",

@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import RequestResponseData from "../../components/request-response-data/RequestResponseData";
 import { IEventFormData } from "../../store/event/create";
 import { addNewEvent } from "../../store/event/create/slice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import DateTimePicker from "react-datetime-picker";
+import { getCategoryList } from "../../store/category/List/slice";
+import { ICategoryData } from "../../store/category/List";
 
 export default function CreateEvent() {
   const dispatch = useAppDispatch();
   const state = useAppSelector((RootState) => RootState.addEvent);
+
   const [eventForm, setEventForm] = useState<IEventFormData>({
     name: "",
     price: 0,
@@ -20,8 +23,16 @@ export default function CreateEvent() {
     date: new Date(),
   });
   const [date3, setDate] = useState(new Date());
+  const getCategoryState = useAppSelector((State) => State.getCategoryList);
+  useEffect(() => {
+    dispatch(getCategoryList());
+  }, [getCategoryState === undefined]);
 
-  const validateForm = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const validateForm = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => {
     const { name, value } = event.target;
     setEventForm({ ...eventForm, [name]: value });
   };
@@ -130,7 +141,7 @@ export default function CreateEvent() {
                   <label>
                     <b>Category: </b>
                   </label>
-                  <input
+                  {/* <input
                     type="text"
                     className="ml-2"
                     id="categoryId"
@@ -139,7 +150,23 @@ export default function CreateEvent() {
                     value={eventForm.categoryId}
                     onChange={validateForm}
                     required
-                  />
+                  /> */}
+                  <select
+                    name="categoryId"
+                    value={eventForm.categoryId}
+                    onChange={validateForm}
+                  >
+                    {getCategoryState !== undefined &&
+                      !getCategoryState.loading &&
+                      getCategoryState?.data?.map((options: ICategoryData) => (
+                        <option
+                          key={options.categoryId}
+                          value={options.categoryId}
+                        >
+                          {options.name}
+                        </option>
+                      ))}
+                  </select>
                   <label>
                     <b>Date: </b>
                   </label>

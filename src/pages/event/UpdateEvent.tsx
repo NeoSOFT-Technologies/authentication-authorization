@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import RequestResponseData from "../../components/request-response-data/RequestResponseData";
 import { IEventUpdateData } from "../../store/event/update";
 import { updateEvent } from "../../store/event/update/slice";
+import { getCategoryList } from "../../store/category/List/slice";
+import { ICategoryData } from "../../store/category/List";
 
 export default function UpdateEvent() {
   const dispatch = useAppDispatch();
@@ -19,8 +21,16 @@ export default function UpdateEvent() {
     imageurl: "",
     categoryId: "",
   });
+  const getCategoryState = useAppSelector((State) => State.getCategoryList);
+  useEffect(() => {
+    dispatch(getCategoryList());
+  }, [getCategoryState === undefined]);
 
-  const validateForm = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const validateForm = (
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+  ) => {
     const { name, value } = event.target;
     setUpdateEventForm({ ...updateEventForm, [name]: value });
   };
@@ -142,9 +152,9 @@ export default function UpdateEvent() {
                   <br />
                   <div>
                     <label>
-                      <b>Category Id: </b>
+                      <b>Category : </b>
                     </label>
-                    <input
+                    {/* <input
                       type="text"
                       className="ml-2"
                       id="categoryId"
@@ -153,7 +163,25 @@ export default function UpdateEvent() {
                       value={updateEventForm.categoryId}
                       onChange={validateForm}
                       required
-                    />
+                    /> */}
+                    <select
+                      name="categoryId"
+                      value={updateEventForm.categoryId}
+                      onChange={validateForm}
+                    >
+                      {getCategoryState !== undefined &&
+                        !getCategoryState.loading &&
+                        getCategoryState?.data?.map(
+                          (options: ICategoryData) => (
+                            <option
+                              key={options.categoryId}
+                              value={options.categoryId}
+                            >
+                              {options.name}
+                            </option>
+                          )
+                        )}
+                    </select>
                   </div>
                   <br />
                   <div>
