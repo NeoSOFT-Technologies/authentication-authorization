@@ -31,6 +31,7 @@ export default function UpdateEvent() {
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLSelectElement>
   ) => {
+    event.preventDefault();
     const { name, value } = event.target;
     setUpdateEventForm({ ...updateEventForm, [name]: value });
   };

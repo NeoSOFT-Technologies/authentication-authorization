@@ -14,6 +14,7 @@ export default function Create() {
   });
 
   const validateForm = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
     const { name, value } = event.target;
     setForm({ ...apisForm, [name]: value });
   };

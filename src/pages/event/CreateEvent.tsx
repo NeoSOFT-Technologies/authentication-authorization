@@ -33,6 +33,7 @@ export default function CreateEvent() {
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLSelectElement>
   ) => {
+    event.preventDefault();
     const { name, value } = event.target;
     setEventForm({ ...eventForm, [name]: value });
   };
