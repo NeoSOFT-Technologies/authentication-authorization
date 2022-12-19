@@ -20,9 +20,18 @@ export const addNewApi = createAsyncThunk(
       return response;
     } catch (_error) {
       const myError = _error as Error | AxiosError;
-      throw axios.isAxiosError(myError) && myError.response
-        ? myError.response.data.Errors[0]
-        : myError.message;
+      const axError = _error as AxiosError;
+
+      if (
+        axError !== undefined &&
+        axios.isAxiosError(axError) &&
+        axError.response
+      )
+        throw axError.response.status;
+      else
+        throw axios.isAxiosError(myError) && myError.response
+          ? myError.response.data.Errors[0]
+          : myError.message;
     }
   }
 );
@@ -38,6 +47,7 @@ const slice = createSlice({
     builder.addCase(addNewApi.fulfilled, (state, action) => {
       state.loading = false;
       state.categoryAdded = true;
+      state.error = action.payload.data.error;
       state.data = action.payload.data.data;
       state.url = action.payload.config.url;
     });
@@ -46,6 +56,9 @@ const slice = createSlice({
       action.payload = action.error;
 
       state.error = error(action.payload);
+      if (state.error === "401") {
+        state.error = "Token Not Valid.";
+      }
     });
   },
 });

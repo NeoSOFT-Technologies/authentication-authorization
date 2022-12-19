@@ -1,7 +1,7 @@
 export interface IUpdatedEventState {
   eventUpdated?: boolean;
   loading?: boolean;
-  error?: boolean | null;
+  error?: string | null;
   data?: IEventUpdateData | null;
   url?: string;
 }

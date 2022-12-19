@@ -18,9 +18,18 @@ export const getEventList = createAsyncThunk("event/getAllEvent", async () => {
     return response;
   } catch (_error) {
     const myError = _error as Error | AxiosError;
-    throw axios.isAxiosError(myError) && myError.response
-      ? myError.response.data.Errors[0]
-      : myError.message;
+    const axError = _error as AxiosError;
+
+    if (
+      axError !== undefined &&
+      axios.isAxiosError(axError) &&
+      axError.response
+    )
+      throw axError.response.status;
+    else
+      throw axios.isAxiosError(myError) && myError.response
+        ? myError.response.data.Errors[0]
+        : myError.message;
   }
 });
 
@@ -45,6 +54,9 @@ const slice = createSlice({
       state.loading = false;
       action.payload = action.error;
       state.error = error(action.payload);
+      if (state.error === "401") {
+        state.error = "Token Not Valid.";
+      }
     });
   },
 });

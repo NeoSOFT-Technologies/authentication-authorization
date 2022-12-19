@@ -34,6 +34,7 @@ class ApiFactoryWrapper {
     const header = {
       Accept: "application/json",
       "Content-Type": "application/json",
+      // Authorization: `Bearer ${"CfDJ8PqqaOPRD5NMjsxSN-p02Z64p68PYvkUS9PZIxvFXeeLc63hGue82_Wrhtnb9dypNtfRCa__dfkLcdIcd0HxyeLKjNdhl7yqv2CEs2MFwUV_9-ol3-vXJYHxRhmi4lhelomEuJtt5fv2IpwjPvCGn3f95M6TfIkLRxiIdeTIBf5f"}`,
       Authorization: `Bearer ${id_token}`,
     };
     Object.assign(header, obj);
