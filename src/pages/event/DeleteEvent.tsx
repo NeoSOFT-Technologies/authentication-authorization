@@ -9,6 +9,7 @@ export default function DeleteEvent() {
   const state = useAppSelector((RootState) => RootState.deleteEvent);
   const [deleteEventId, setDeleteEventId] = useState<string>("");
   const validateForm = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
     const { value } = event.target;
     setDeleteEventId(value);
   };
