@@ -5,12 +5,13 @@ import RequestResponseData from "../../components/request-response-data/RequestR
 import { IEventUpdateData } from "../../store/event/update";
 import { updateEvent } from "../../store/event/update/slice";
 import { getCategoryList } from "../../store/category/List/slice";
+import DateTimePicker from "react-datetime-picker";
 import { ICategoryData } from "../../store/category/List";
 
 export default function UpdateEvent() {
   const dispatch = useAppDispatch();
   const state = useAppSelector((RootState) => RootState.updateEvent);
-
+  const [dateState, setDate] = useState(new Date());
   const [updateEventForm, setUpdateEventForm] = useState<IEventUpdateData>({
     eventId: "",
     name: "",
@@ -123,15 +124,10 @@ export default function UpdateEvent() {
                     <label>
                       <b>Date: </b>
                     </label>
-                    <input
-                      type="text"
-                      className="ml-2"
-                      id="date"
-                      name="date"
-                      placeholder="Enter Event Date"
-                      value={updateEventForm.date}
-                      onChange={validateForm}
-                      required
+                    <DateTimePicker
+                      name="date1"
+                      onChange={setDate}
+                      value={dateState}
                     />
                   </div>
                   <br />
