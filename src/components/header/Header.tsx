@@ -51,7 +51,7 @@ const Header = ({ authProvider }: any) => {
               {isAuthenticated && (
                 <NavItem>
                   <RouterNavLink
-                    to="/resourceApis"
+                    to="/devMode"
                     className={({ isActive }) =>
                       isActive ? "router-link-exact-active" : "nav-link"
                     }
@@ -63,7 +63,7 @@ const Header = ({ authProvider }: any) => {
               {isAuthenticated && (
                 <NavItem>
                   <RouterNavLink
-                    to="/extendedApis"
+                    to="/userMode"
                     className={({ isActive }) =>
                       isActive ? "router-link-exact-active" : "nav-link"
                     }
@@ -72,40 +72,6 @@ const Header = ({ authProvider }: any) => {
                   </RouterNavLink>
                 </NavItem>
               )}
-              {/* {isAuthenticated && (
-                <AuthGuard
-                  resource={access.resources.Category}
-                  scope={access.scopes.View}
-                >
-                  <NavItem>
-                    <RouterNavLink
-                      to="/category"
-                      className={({ isActive }) =>
-                        isActive ? "router-link-exact-active" : "nav-link"
-                      }
-                    >
-                      Category
-                    </RouterNavLink>
-                  </NavItem>
-                </AuthGuard>
-              )}
-              {isAuthenticated && (
-                <AuthGuard
-                  resource={access.resources.Event}
-                  scope={access.scopes.View}
-                >
-                  <NavItem>
-                    <RouterNavLink
-                      to="/event"
-                      className={({ isActive }) =>
-                        isActive ? "router-link-exact-active" : "nav-link"
-                      }
-                    >
-                      Event
-                    </RouterNavLink>
-                  </NavItem>
-                </AuthGuard>
-              )} */}
             </Nav>
             <Nav className="d-none d-md-block" navbar>
               {!isAuthenticated && (

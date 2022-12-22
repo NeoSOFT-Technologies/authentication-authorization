@@ -4,7 +4,7 @@ const Footer = () => (
   <footer className="bg-light p-3 text-center" style={{ maxHeight: "2vh" }}>
     <img
       style={{ height: "5vh" }}
-      src="https://www.neosofttech.com/sites/all/themes/neosoft2017/images/neosoft-logo.svg"
+      src="/global/images/neoLogo.png"
       alt="NeoSOFT"
     ></img>
     <p>

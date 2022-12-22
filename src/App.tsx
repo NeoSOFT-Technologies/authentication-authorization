@@ -17,12 +17,12 @@ import { access, AuthGuard } from "./components/auth-guard/AuthGuard";
 import CreateCategory from "./pages/category/Create";
 import Delete from "./pages/category/Delete";
 import View from "./pages/category/View";
-import ResourceAPIs from "./pages/resource-apis/ResourceAPIs";
+import UserMode from "./pages/resource-apis/UserMode";
 import CreateEvent from "./pages/event/CreateEvent";
 import DeleteEvent from "./pages/event/DeleteEvent";
 import ViewEvent from "./pages/event/ViewEvent";
 import UpdateEvent from "./pages/event/UpdateEvent";
-import ExtendedAPIs from "./pages/resource-apis/ExtendedAPIs";
+import DevMode from "./pages/resource-apis/DevMode";
 initFontAwesome();
 
 function App({ authProvider }: any) {
@@ -40,8 +40,8 @@ function App({ authProvider }: any) {
             <Route path="/list" element={<List />} />
             <Route path="/create" element={<Create />} />
             {/* <Route path="/update" element={<Update />} /> */}
-            <Route path="/resourceApis" element={<ResourceAPIs />} />
-            <Route path="/extendedApis" element={<ExtendedAPIs />} />
+            <Route path="/devMode" element={<DevMode />} />
+            <Route path="/userMode" element={<UserMode />} />
             <Route
               path="/viewCategory"
               element={

@@ -7,7 +7,7 @@ import {
   getDecodeToken,
 } from "../../resources/permission.helper";
 
-export default function ExtendedAPIs() {
+export default function UserMode() {
   const navigate = useNavigate();
   const NavigateToView = (key: any) => {
     navigate("/view" + key);

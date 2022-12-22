@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { access, AuthGuard } from "../../components/auth-guard/AuthGuard";
 
-export default function ResourceAPIs() {
+export default function DevMode() {
   const navigate = useNavigate();
   const NavigateToView = (key: any) => {
     navigate("/view" + key);
