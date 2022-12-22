@@ -54,18 +54,7 @@ function App({ authProvider }: any) {
                 </AuthGuard>
               }
             />
-            <Route
-              path="/createCategory"
-              element={
-                <AuthGuard
-                  resource={access.resources.Category}
-                  scope={access.scopes.Create}
-                  protect={access.protect}
-                >
-                  <CreateCategory />
-                </AuthGuard>
-              }
-            />
+            <Route path="/createCategory" element={<CreateCategory />} />
             <Route
               path="/updateCategory"
               element={

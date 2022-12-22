@@ -14,7 +14,7 @@ function CallbackPage() {
         navigate("/login");
       } else {
         ToastAlert("Logged In", "success");
-        navigate("/landing");
+        navigate("/resourceApis");
       }
     }
   }, [auth.isAuthenticated]);

@@ -48,28 +48,6 @@ const Header = ({ authProvider }: any) => {
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
-              <NavItem>
-                <RouterNavLink
-                  to="/landing"
-                  className={({ isActive }) =>
-                    isActive ? "router-link-exact-active" : "nav-link"
-                  }
-                >
-                  Home
-                </RouterNavLink>
-              </NavItem>
-              {/* {isAuthenticated && (
-                <NavItem>
-                  <RouterNavLink
-                    to="/list"
-                    className={({ isActive }) =>
-                      isActive ? "router-link-exact-active" : "nav-link"
-                    }
-                  >
-                    External API
-                  </RouterNavLink>
-                </NavItem>
-              )} */}
               {isAuthenticated && (
                 <NavItem>
                   <RouterNavLink
@@ -78,7 +56,7 @@ const Header = ({ authProvider }: any) => {
                       isActive ? "router-link-exact-active" : "nav-link"
                     }
                   >
-                    Resource APIs
+                    Dev Mode
                   </RouterNavLink>
                 </NavItem>
               )}
@@ -90,7 +68,7 @@ const Header = ({ authProvider }: any) => {
                       isActive ? "router-link-exact-active" : "nav-link"
                     }
                   >
-                    Extended APIs
+                    User Mode
                   </RouterNavLink>
                 </NavItem>
               )}

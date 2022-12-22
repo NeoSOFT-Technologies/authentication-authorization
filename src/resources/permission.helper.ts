@@ -46,7 +46,7 @@ export function permissionFunction(token: any) {
   return [
     {
       resource: resources.Category,
-      scopes: [scopes.View, scopes.Create],
+      scopes: [scopes.View],
     },
     {
       resource: resources.Event,
