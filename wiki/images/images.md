@@ -12,6 +12,10 @@ Backend API
 ![ViewCategory](https://user-images.githubusercontent.com/92291258/209273849-a9290df3-584c-46ab-b36d-97debb68fd00.png)
 ![DeleteCategory](https://user-images.githubusercontent.com/92291258/209274105-0a31feca-fbd5-40cf-a493-e65e0b7c101a.png)
 
+# UserMode Apis
+![UserMode1](https://user-images.githubusercontent.com/88362571/209289635-ea0b5c81-bc19-4532-af78-94970f7ba32e.PNG)
+
+
 # IDP/IAM
 ![IDPIAM](https://us![1](https://user-images.githubusercontent.com/92291258/209283189-9e996384-2d46-4eae-8a6c-332df20e0ba3.png)
 ![1](https://user-images.githubusercontent.com/92291258/209283231-635780d7-88aa-4de1-ba95-c7d7c7a3a9ff.png)
