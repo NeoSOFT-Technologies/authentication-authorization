@@ -13,7 +13,7 @@ Backend API
 ![DeleteCategory](https://user-images.githubusercontent.com/92291258/209274105-0a31feca-fbd5-40cf-a493-e65e0b7c101a.png)
 
 # UserMode Apis
-![UserMode1](https://user-images.githubusercontent.com/88362571/209289635-ea0b5c81-bc19-4532-af78-94970f7ba32e.PNG)
+![UserMode1 (2)](https://user-images.githubusercontent.com/88362571/209290410-e010c1e6-6211-40f5-bd24-4116e7abf495.PNG)
 
 
 # IDP/IAM
