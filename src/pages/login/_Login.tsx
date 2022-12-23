@@ -17,6 +17,7 @@ import { useTranslation } from "react-i18next";
 export default function Login() {
   const { t } = useTranslation();
   const auth = useAuth();
+  auth.isLoading = false;
   const navigate = useNavigate();
   console.log(auth);
 
@@ -88,6 +89,7 @@ export default function Login() {
     if (!auth.isLoading && auth.isAuthenticated) {
       navigate("/landing");
     }
+    console.log("loading", auth.isLoading);
   }, [auth.isLoading]);
 
   useEffect(() => {
@@ -106,7 +108,7 @@ export default function Login() {
   const handleLogin = () => {
     auth.signinRedirect();
   };
-
+  console.log("newLoading", auth.isLoading);
   return (
     <>
       {auth.isLoading ? (
@@ -201,7 +203,7 @@ export default function Login() {
                           Sign in with KEYCLOAK
                         </h4>
                         <Button
-                          data-testid="signin-button"
+                          data-testid="signinn-button"
                           className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
                           onClick={() => {
                             handleLogin();
