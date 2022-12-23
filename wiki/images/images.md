@@ -7,7 +7,8 @@ Backend API
 
 
 # Home
-![AuthHome](https://user-images.githubusercontent.com/80381121/209068519-15bcdabc-162a-4a40-938c-554d4529b6ef.png)
+![AuthHome](https://user-images.githubusercontent.com/80381121/209274797-584030fb-51fe-4161-9fd6-90087fd56974.png)
+
 
 # DevMode Apis
 ![devMode](https://user-images.githubusercontent.com/92291258/209273013-9a94e77f-29b2-4b84-a07c-4fa39a37f0d1.png)
