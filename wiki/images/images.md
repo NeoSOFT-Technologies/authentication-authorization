@@ -14,3 +14,4 @@ Backend API
 ![ViewCategory](https://user-images.githubusercontent.com/92291258/209273849-a9290df3-584c-46ab-b36d-97debb68fd00.png)
 ![DeleteCategory](https://user-images.githubusercontent.com/92291258/209274105-0a31feca-fbd5-40cf-a493-e65e0b7c101a.png)
 
+![DevMode](https://user-images.githubusercontent.com/80381121/209349423-9399e488-009b-408a-8969-e578feb7f486.png)
