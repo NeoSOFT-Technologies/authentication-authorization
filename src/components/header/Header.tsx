@@ -18,6 +18,7 @@ import {
 } from "reactstrap";
 
 import { useAuth } from "react-oidc-context";
+// import { access, AuthGuard } from "../auth-guard/AuthGuard";
 
 const Header = ({ authProvider }: any) => {
   const navigate = useNavigate();
@@ -47,25 +48,27 @@ const Header = ({ authProvider }: any) => {
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
-              <NavItem>
-                <RouterNavLink
-                  to="/landing"
-                  className={({ isActive }) =>
-                    isActive ? "router-link-exact-active" : "nav-link"
-                  }
-                >
-                  Home
-                </RouterNavLink>
-              </NavItem>
               {isAuthenticated && (
                 <NavItem>
                   <RouterNavLink
-                    to="/external-api"
+                    to="/devMode"
                     className={({ isActive }) =>
                       isActive ? "router-link-exact-active" : "nav-link"
                     }
                   >
-                    External API
+                    Dev Mode
+                  </RouterNavLink>
+                </NavItem>
+              )}
+              {isAuthenticated && (
+                <NavItem>
+                  <RouterNavLink
+                    to="/userMode"
+                    className={({ isActive }) =>
+                      isActive ? "router-link-exact-active" : "nav-link"
+                    }
+                  >
+                    User Mode
                   </RouterNavLink>
                 </NavItem>
               )}

@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 import { WebStorageStateStore } from "oidc-client-ts";
 import { AuthProviders } from "./utils/oidc-config";
 
-const Identityprovider: any = AuthProviders.Auth0;
+const Identityprovider: any = AuthProviders.Azure;
 const oidc = {
   config: Identityprovider.config,
   name: Identityprovider.name,
