@@ -2,6 +2,10 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { access, AuthGuard } from "../../components/auth-guard/AuthGuard";
+import {
+  permissionFunction,
+  getDecodeToken,
+} from "../../resources/permission.helper";
 
 export default function DevMode() {
   const navigate = useNavigate();
@@ -17,6 +21,10 @@ export default function DevMode() {
   const NavigateToDelete = (key: any) => {
     navigate("/delete" + key);
   };
+
+  const token = getDecodeToken();
+  const resourcePermission = permissionFunction(token);
+
   return (
     <div className="col-lg-12 grid-margin stretch-card">
       <Card>
@@ -33,7 +41,27 @@ export default function DevMode() {
               {Object.keys(access.resources).map((key) => {
                 return (
                   <div key={key}>
-                    <h2>{key}</h2>
+                    {/* <h2>{key}</h2> */}
+                    {
+                      // eslint-disable-next-line array-callback-return
+                      resourcePermission.map((a) => {
+                        if (
+                          a.resource === key.toLowerCase() &&
+                          a.scopes.length > 0
+                        ) {
+                          return <h2>{key}</h2>;
+                        } else if (
+                          a.resource === key.toLowerCase() &&
+                          a.scopes.length === 0
+                        ) {
+                          return (
+                            <div>
+                              <h2>{key} (No Access)</h2>
+                            </div>
+                          );
+                        }
+                      })
+                    }
                     <div>
                       {" "}
                       <button

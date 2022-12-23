@@ -24,7 +24,6 @@ export default function UserMode() {
 
   const token = getDecodeToken();
   const resourcePermission = permissionFunction(token);
-  // console.log("a value:", resourcePermission);
 
   return (
     <div className="col-lg-12 grid-margin stretch-card">
@@ -50,8 +49,6 @@ export default function UserMode() {
                           a.resource === key.toLowerCase() &&
                           a.scopes.length > 0
                         ) {
-                          console.log("Key value with auth2 :", key);
-                          console.log(a.scopes.length);
                           return <h2>{key}</h2>;
                         }
                         // eslint-disable-next-line react/jsx-key
